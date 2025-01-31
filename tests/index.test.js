@@ -11,8 +11,6 @@ describe("Authentication", () => {
 
 
     })
-
-
     test('User is able to signup only once', async () => {
         const username = "aditya" + Math.random();
         const password = "123456";
