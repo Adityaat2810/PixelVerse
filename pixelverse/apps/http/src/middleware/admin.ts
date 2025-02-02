@@ -20,9 +20,15 @@ export const adminMiddleware =(
       role:string , userId:string
     }
     req.userId = decoded.userId
+    if(decoded.role!="Admin"){
+      res.status(403).json({
+        message: "Forbidden: Admin access required"
+      });
+      return;
+    }
     next()
   }catch(error){
-    res.status(401).json({
+    res.status(403).json({
       "message":"Unauthorized"
     })
     return
